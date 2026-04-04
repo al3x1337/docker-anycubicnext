@@ -19,15 +19,15 @@ pipeline {
     DOCKERHUB_TOKEN=credentials('docker-hub-ci-pat')
     QUAYIO_API_TOKEN=credentials('quayio-repo-api-token')
     GIT_SIGNING_KEY=credentials('484fbca6-9a4f-455e-b9e3-97ac98785f5f')
-    EXT_USER = 'bambulab'
-    EXT_REPO = 'BambuStudio'
-    BUILD_VERSION_ARG = 'BAMBUSTUDIO_VERSION'
+    EXT_USER = 'develonrails'
+    EXT_REPO = 'anycubic-slicer-next'
+    BUILD_VERSION_ARG = 'ANYCUBIC_SLICER_VERSION'
     LS_USER = 'linuxserver'
-    LS_REPO = 'docker-bambustudio'
-    CONTAINER_NAME = 'bambustudio'
-    DOCKERHUB_IMAGE = 'linuxserver/bambustudio'
-    DEV_DOCKERHUB_IMAGE = 'lsiodev/bambustudio'
-    PR_DOCKERHUB_IMAGE = 'lspipepr/bambustudio'
+    LS_REPO = 'docker-anycubicslicer'
+    CONTAINER_NAME = 'anycubicslicer'
+    DOCKERHUB_IMAGE = 'linuxserver/anycubicslicer'
+    DEV_DOCKERHUB_IMAGE = 'lsiodev/anycubicslicer'
+    PR_DOCKERHUB_IMAGE = 'lspipepr/anycubicslicer'
     DIST_IMAGE = 'ubuntu'
     MULTIARCH = 'false'
     CI = 'true'
@@ -592,16 +592,16 @@ pipeline {
         sh "docker buildx build \
           --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
           --label \"org.opencontainers.image.authors=linuxserver.io\" \
-          --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-bambustudio/packages\" \
-          --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-bambustudio\" \
-          --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-bambustudio\" \
+          --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-anycubicslicer/packages\" \
+          --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-anycubicslicer\" \
+          --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-anycubicslicer\" \
           --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ls${LS_TAG_NUMBER}\" \
           --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
           --label \"org.opencontainers.image.vendor=linuxserver.io\" \
           --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
           --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
-          --label \"org.opencontainers.image.title=Bambustudio\" \
-          --label \"org.opencontainers.image.description=[Bambu Studio](https://bambulab.com/en/download/studio) is an open-source, cutting-edge, feature-rich slicing software. It contains project-based workflows, systematically optimized slicing algorithms, and an easy-to-use graphical interface, bringing users an incredibly smooth printing experience.\" \
+          --label \"org.opencontainers.image.title=Anycubicslicer\" \
+          --label \"org.opencontainers.image.description=[Anycubic Slicer Next](https://www.anycubic.com/pages/anycubic-slicer) is a cutting-edge slicing software designed for Anycubic's latest generation of 3D printers.\" \
           --no-cache --pull -t ${IMAGE}:${META_TAG} --platform=linux/amd64 \
           --provenance=true --sbom=true --builder=container --load \
           --build-arg ${BUILD_VERSION_ARG}=${EXT_RELEASE} --build-arg VERSION=\"${VERSION_TAG}\" --build-arg BUILD_DATE=${GITHUB_DATE} ."

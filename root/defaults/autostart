@@ -1,3 +1,4 @@
+#!/bin/bash
 # Enable dark mode if defined
 if [ "${DARK_MODE}" = "true" ] && [ ! -f "$HOME/.config/gtk-3.0/settings.ini" ]; then
   mkdir -p $HOME/.config/gtk-3.0
@@ -7,4 +8,6 @@ elif [ "${DARK_MODE}" != "true" ] && [ -f "$HOME/.config/gtk-3.0/settings.ini" ]
   rm -f "$HOME/.config/gtk-3.0/settings.ini"
 fi
 
-/opt/bambustudio/AppRun
+echo "Autostart script running at $(date)" > /tmp/autostart.log
+export WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
+/opt/anycubicslicer/AppRun &

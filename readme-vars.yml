@@ -1,10 +1,10 @@
 ---
 
 # project information
-project_name: bambustudio
-project_url: "https://bambulab.com/en/download/studio"
-project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bambustudio-logo.png"
-project_blurb: "[Bambu Studio]({{ project_url }}) is an open-source, cutting-edge, feature-rich slicing software. It contains project-based workflows, systematically optimized slicing algorithms, and an easy-to-use graphical interface, bringing users an incredibly smooth printing experience."
+project_name: anycubicslicer
+project_url: "https://www.anycubic.com/pages/anycubic-slicer"
+project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/anycubicslicer-logo.png"
+project_blurb: "[Anycubic Slicer Next]({{ project_url }}) is a cutting-edge slicing software designed for Anycubic's latest generation of 3D printers. It features an intuitive interface, optimized slicing algorithms, and seamless integration with the MakerOnline platform."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_categories: "3D Printing"
 project_blurb_optional_extras_enabled: false
@@ -18,14 +18,14 @@ common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 opt_param_usage_include_env: true
 opt_param_env_vars:
-  - {env_var: "DARK_MODE", env_value: "true", desc: "Set this to true to enable dark mode for Bambu Studio."}
+  - {env_var: "DARK_MODE", env_value: "true", desc: "Set this to true to enable dark mode for Anycubic Slicer."}
 param_usage_include_vols: true
 param_volumes:
   - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Users home directory in the container, stores program settings and files."}
 param_usage_include_ports: true
 param_ports:
-  - {external_port: "3000", internal_port: "3000", port_desc: "Bambu Studio desktop gui HTTP, must be proxied."}
-  - {external_port: "3001", internal_port: "3001", port_desc: "Bambu Studio desktop gui HTTPS."}
+  - {external_port: "3000", internal_port: "3000", port_desc: "Anycubic Slicer desktop gui HTTP, must be proxied."}
+  - {external_port: "3001", internal_port: "3001", port_desc: "Anycubic Slicer desktop gui HTTPS."}
 custom_params:
   - {name: "shm-size", name_compose: "shm_size", value: "1gb", desc: "Recommended for all desktop images."}
 # Selkies blurb settings
