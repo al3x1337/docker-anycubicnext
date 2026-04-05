@@ -33,7 +33,8 @@ RUN \
     gstreamer1.0-pulseaudio \
     libosmesa6 \
     libwebkit2gtk-4.1-0 \
-    libwx-perl && \
+    libwx-perl \
+    x11-utils && \
   echo "**** install anycubic slicer next ****" && \
   echo "deb [trusted=yes] https://cdn-universe-slicer.anycubic.com/prod noble main" | tee /etc/apt/sources.list.d/acnext.list && \
   apt-get update && \
@@ -41,6 +42,7 @@ RUN \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
+    /usr/share/dbus-1/system-services/org.freedesktop.hostname1.service \
     /config/.cache \
     /config/.launchpadlib \
     /var/lib/apt/lists/* \

@@ -18,6 +18,7 @@ docker run -d \
   -p 3001:3001 \
   # -v /path/to/data:/config \ # Optional: For persistent configuration
   # -v /path/to/prints:/prints \ # Optional: For saving/loading gcode files
+  --security-opt seccomp=unconfined \ # Required for some server/NAS environments
   --shm-size="1gb" \
   ghcr.io/al3x1337/docker-anycubicnext:latest
 ```
@@ -28,6 +29,8 @@ services:
   anycubicnext:
     image: ghcr.io/al3x1337/docker-anycubicnext:latest
     container_name: anycubicnext
+    security_opt:
+      - seccomp:unconfined # Required for some server/NAS environments
     environment:
       - PUID=1000
       - PGID=1000

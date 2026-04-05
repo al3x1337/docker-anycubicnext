@@ -8,6 +8,28 @@ elif [ "${DARK_MODE}" != "true" ] && [ -f "$HOME/.config/gtk-3.0/settings.ini" ]
   rm -f "$HOME/.config/gtk-3.0/settings.ini"
 fi
 
-echo "Autostart script running at $(date)" > /tmp/autostart.log
+# Wait for X server to be ready
+echo "Waiting for X server on $DISPLAY..." > /tmp/autostart.log
+MAX_ATTEMPTS=30
+ATTEMPT=0
+while ! xdpyinfo &>/dev/null; do
+  sleep 1
+  ATTEMPT=$((ATTEMPT + 1))
+  if [ $ATTEMPT -ge $MAX_ATTEMPTS ]; then
+    echo "X server failed to start after $MAX_ATTEMPTS seconds" >> /tmp/autostart.log
+    exit 1
+  fi
+done
+
+echo "X server is ready at $(date). Launching Anycubic Slicer Next..." >> /tmp/autostart.log
+
+# Disable GPU acceleration requiring host passthrough
+export LIBGL_ALWAYS_SOFTWARE=1
+export GALLIUM_DRIVER=llvmpipe
+
+# Disable WebKit GTK sandboxing which causes crash dumps without seccomp=unconfined
 export WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
-/usr/bin/AnycubicSlicerNext &> /tmp/autostart.log &
+export WEBKIT_FORCE_SANDBOX=0
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
+
+/usr/bin/AnycubicSlicerNext &>> /tmp/autostart.log &
