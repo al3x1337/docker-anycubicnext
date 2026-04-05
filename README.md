@@ -18,7 +18,6 @@ docker run -d \
   -p 3001:3001 \
   # -v /path/to/data:/config \ # Optional: For persistent configuration
   # -v /path/to/prints:/prints \ # Optional: For saving/loading gcode files
-  --security-opt seccomp=unconfined \
   --shm-size="1gb" \
   lscr.io/al3x1337/anycubicnext:latest
 ```
@@ -29,8 +28,6 @@ services:
   anycubicnext:
     image: lscr.io/al3x1337/anycubicnext:latest
     container_name: anycubicnext
-    security_opt:
-      - seccomp:unconfined #optional
     environment:
       - PUID=1000
       - PGID=1000
@@ -64,13 +61,6 @@ The application can be accessed at:
 * https://yourhost:3001/
 
 ### Strict reverse proxies
-
-This image uses a self-signed certificate by default. This naturally means the scheme is `https`.
-If you are using a reverse proxy which validates certificates, you need to [disable this check for the container](https://docs.linuxserver.io/faq#strict-proxy).
-
-**Modern GUI desktop apps may have compatibility issues with the latest Docker syscall restrictions. You can use Docker with the `--security-opt seccomp=unconfined` setting to allow these syscalls on hosts with older Kernels or libseccomp versions.**
-
-### Security
 
 >[!WARNING]
 >This container provides privileged access to the host system. Do not expose it to the Internet unless you have secured it properly.

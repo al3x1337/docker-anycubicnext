@@ -34,23 +34,10 @@ RUN \
     libosmesa6 \
     libwebkit2gtk-4.1-0 \
     libwx-perl && \
-  echo "**** install anycubic slicer from appimage ****" && \
-  if [ -z ${ANYCUBIC_SLICER_VERSION+x} ]; then \
-    ANYCUBIC_SLICER_VERSION=$(curl -sX GET "https://api.github.com/repos/develonrails/anycubic-slicer-next/releases/latest" \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
-  fi && \
-  RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/develonrails/anycubic-slicer-next/releases/latest" | awk '/url/{print $4;exit}' FS='[""]') && \
-  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*AppImage/{print $4;exit}' FS='[""]') && \
-  cd /tmp && \
-  curl -o \
-    /tmp/anycubic.app -L \
-    "${DOWNLOAD_URL}" && \
-  chmod +x /tmp/anycubic.app && \
-  ./anycubic.app --appimage-extract && \
-  mv squashfs-root /opt/anycubicslicer && \
-  chown -R 911:911 /opt/anycubicslicer && \
-  localedef -i en_GB -f UTF-8 en_GB.UTF-8 && \
-  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
+  echo "**** install anycubic slicer next ****" && \
+  echo "deb [trusted=yes] https://cdn-universe-slicer.anycubic.com/prod noble main" | tee /etc/apt/sources.list.d/acnext.list && \
+  apt-get update && \
+  apt-get install -y anycubicslicernext && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \

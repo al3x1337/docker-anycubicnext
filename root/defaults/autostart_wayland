@@ -10,4 +10,4 @@ fi
 
 echo "Autostart script running at $(date)" > /tmp/autostart.log
 export WEBKIT_DISABLE_SANDBOX_THIS_IS_DANGEROUS=1
-/opt/anycubicslicer/AppRun &
+/usr/bin/AnycubicSlicerNext &> /tmp/autostart.log &
