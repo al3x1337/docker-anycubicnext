@@ -22,12 +22,12 @@ pipeline {
     EXT_USER = 'develonrails'
     EXT_REPO = 'anycubic-slicer-next'
     BUILD_VERSION_ARG = 'ANYCUBIC_SLICER_VERSION'
-    LS_USER = 'linuxserver'
-    LS_REPO = 'docker-anycubicslicer'
-    CONTAINER_NAME = 'anycubicslicer'
-    DOCKERHUB_IMAGE = 'linuxserver/anycubicslicer'
-    DEV_DOCKERHUB_IMAGE = 'lsiodev/anycubicslicer'
-    PR_DOCKERHUB_IMAGE = 'lspipepr/anycubicslicer'
+    LS_USER = 'al3x1337'
+    LS_REPO = 'docker-anycubicnext'
+    CONTAINER_NAME = 'anycubicnext'
+    DOCKERHUB_IMAGE = 'al3x1337/anycubicnext'
+    DEV_DOCKERHUB_IMAGE = 'al3x1337/anycubicnext-dev'
+    PR_DOCKERHUB_IMAGE = 'al3x1337/anycubicnext-pr'
     DIST_IMAGE = 'ubuntu'
     MULTIARCH = 'false'
     CI = 'true'
@@ -592,12 +592,12 @@ pipeline {
         sh "docker buildx build \
           --label \"org.opencontainers.image.created=${GITHUB_DATE}\" \
           --label \"org.opencontainers.image.authors=linuxserver.io\" \
-          --label \"org.opencontainers.image.url=https://github.com/linuxserver/docker-anycubicslicer/packages\" \
-          --label \"org.opencontainers.image.documentation=https://docs.linuxserver.io/images/docker-anycubicslicer\" \
-          --label \"org.opencontainers.image.source=https://github.com/linuxserver/docker-anycubicslicer\" \
+          --label \"org.opencontainers.image.url=https://github.com/al3x1337/docker-anycubicnext/packages\" \
+          --label \"org.opencontainers.image.documentation=https://github.com/al3x1337/docker-anycubicnext/blob/master/README.md\" \
+          --label \"org.opencontainers.image.source=https://github.com/al3x1337/docker-anycubicnext\" \
           --label \"org.opencontainers.image.version=${EXT_RELEASE_CLEAN}-ls${LS_TAG_NUMBER}\" \
           --label \"org.opencontainers.image.revision=${COMMIT_SHA}\" \
-          --label \"org.opencontainers.image.vendor=linuxserver.io\" \
+          --label \"org.opencontainers.image.vendor=al3x1337\" \
           --label \"org.opencontainers.image.licenses=GPL-3.0-only\" \
           --label \"org.opencontainers.image.ref.name=${COMMIT_SHA}\" \
           --label \"org.opencontainers.image.title=Anycubicslicer\" \

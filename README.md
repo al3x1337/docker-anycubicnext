@@ -8,7 +8,7 @@
 [![GitHub](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub&logo=github)](https://github.com/linuxserver "view the source for all of our repositories.")
 [![Open Collective](https://img.shields.io/opencollective/all/linuxserver.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=Supporters&logo=open%20collective)](https://opencollective.com/linuxserver "please consider helping us by either donating or contributing to our budget")
 
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring:
+The [al3x1337](https://github.com/al3x1337) team (based on LinuxServer.io) brings you another container release featuring:
 
 * regular and timely application updates
 * easy user mappings (PGID, PUID)
@@ -24,18 +24,11 @@ Find us at:
 * [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.
 * [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
 
-# [linuxserver/anycubicslicer](https://github.com/linuxserver/docker-anycubicslicer)
+# [al3x1337/anycubicnext](https://github.com/al3x1337/docker-anycubicnext)
 
-[![Scarf.io pulls](https://scarf.sh/installs-badge/linuxserver-ci/linuxserver%2Fbambustudio?color=94398d&label-color=555555&logo-color=ffffff&style=for-the-badge&package-type=docker)](https://scarf.sh)
-[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-bambustudio.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-bambustudio)
-[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-bambustudio.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/linuxserver/docker-bambustudio/releases)
-[![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitHub%20Package&logo=github)](https://github.com/linuxserver/docker-bambustudio/packages)
-[![GitLab Container Registry](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab)](https://gitlab.com/linuxserver.io/docker-bambustudio/container_registry)
-[![Quay.io](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/bambustudio)
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/bambustudio.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=pulls&logo=docker)](https://hub.docker.com/r/linuxserver/bambustudio)
-[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/bambustudio.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=stars&logo=docker)](https://hub.docker.com/r/linuxserver/bambustudio)
-[![Jenkins Build](https://img.shields.io/jenkins/build?labelColor=555555&logoColor=ffffff&style=for-the-badge&jobUrl=https%3A%2F%2Fci.linuxserver.io%2Fjob%2FDocker-Pipeline-Builders%2Fjob%2Fdocker-bambustudio%2Fjob%2Fmaster%2F&logo=jenkins)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-bambustudio/job/master/)
-[![LSIO CI](https://img.shields.io/badge/dynamic/yaml?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=CI&query=CI&url=https%3A%2F%2Fci-tests.linuxserver.io%2Flinuxserver%2Fbambustudio%2Flatest%2Fci-status.yml)](https://ci-tests.linuxserver.io/linuxserver/bambustudio/latest/index.html)
+[![GitHub Stars](https://img.shields.io/github/stars/al3x1337/docker-anycubicnext.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/al3x1337/docker-anycubicnext)
+[![GitHub Release](https://img.shields.io/github/release/al3x1337/docker-anycubicnext.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&logo=github)](https://github.com/al3x1337/docker-anycubicnext/releases)
+[![GitHub Package Repository](https://img.shields.io/static/v1.svg?color=94398d&labelColor=555555&logoColor=ffffff&style=for-the-badge&label=al3x1337&message=GitHub%20Package&logo=github)](https://github.com/al3x1337/docker-anycubicnext/packages)
 
 [Anycubic Slicer Next](https://www.anycubic.com/pages/anycubic-slicer) is a cutting-edge slicing software designed for Anycubic's latest generation of 3D printers. It features an intuitive interface, optimized slicing algorithms, and seamless integration with the MakerOnline platform.
 
@@ -46,22 +39,22 @@ Find us at:
 **Docker Run:**
 ```bash
 docker run -d \
-  --name=anycubicslicer \
+  --name=anycubicnext \
   -p 3000:3000 \
   -p 3001:3001 \
   # -v /path/to/data:/config \ # Optional: For persistent configuration
   # -v /path/to/prints:/prints \ # Optional: For saving/loading gcode files
   --security-opt seccomp=unconfined \
   --shm-size="1gb" \
-  lscr.io/linuxserver/anycubicslicer:latest
+  lscr.io/al3x1337/anycubicnext:latest
 ```
 
 **Docker Compose:**
 ```yaml
 services:
-  anycubicslicer:
-    image: lscr.io/linuxserver/anycubicslicer:latest
-    container_name: anycubicslicer
+  anycubicnext:
+    image: lscr.io/al3x1337/anycubicnext:latest
+    container_name: anycubicnext
     security_opt:
       - seccomp:unconfined #optional
     environment:
@@ -75,14 +68,13 @@ services:
       - 3000:3000
       - 3001:3001
     shm_size: "1gb"
-    restart: unless-stopped
 ```
 
 ## Supported Architectures
 
 We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://distribution.github.io/distribution/spec/manifest-v2-2/#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
 
-Simply pulling `lscr.io/linuxserver/bambustudio:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+Simply pulling `lscr.io/al3x1337/anycubicnext:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
 The architectures supported by this image are:
 

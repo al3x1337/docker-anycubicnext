@@ -6,8 +6,8 @@ FROM ghcr.io/linuxserver/baseimage-selkies:ubuntunoble
 ARG BUILD_DATE
 ARG VERSION
 ARG ANYCUBIC_SLICER_VERSION
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="thelamer"
+LABEL build_version="al3x1337 version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="al3x1337"
 
 # title
 ENV TITLE=AnycubicSlicer \

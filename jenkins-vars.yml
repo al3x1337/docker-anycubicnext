@@ -1,8 +1,9 @@
 ---
 
 # jenkins variables
-project_name: docker-anycubicslicer
-external_type: github_stable
+project_name: docker-anycubicnext
+ls_user: al3x1337
+ls_repo: docker-anycubicnext
 release_type: stable
 release_tag: latest
 ls_branch: master
@@ -17,12 +18,12 @@ repo_vars:
   - EXT_USER = 'develonrails'
   - EXT_REPO = 'anycubic-slicer-next'
   - BUILD_VERSION_ARG = 'ANYCUBIC_SLICER_VERSION'
-  - LS_USER = 'linuxserver'
-  - LS_REPO = 'docker-anycubicslicer'
-  - CONTAINER_NAME = 'anycubicslicer'
-  - DOCKERHUB_IMAGE = 'linuxserver/anycubicslicer'
-  - DEV_DOCKERHUB_IMAGE = 'lsiodev/anycubicslicer'
-  - PR_DOCKERHUB_IMAGE = 'lspipepr/anycubicslicer'
+  - LS_USER = 'al3x1337'
+  - LS_REPO = 'docker-anycubicnext'
+  - CONTAINER_NAME = 'anycubicnext'
+  - DOCKERHUB_IMAGE = 'al3x1337/anycubicnext'
+  - DEV_DOCKERHUB_IMAGE = 'al3x1337/anycubicnext-dev'
+  - PR_DOCKERHUB_IMAGE = 'al3x1337/anycubicnext-pr'
   - DIST_IMAGE = 'ubuntu'
   - MULTIARCH = 'false'
   - CI = 'true'
