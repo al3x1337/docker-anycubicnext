@@ -26,7 +26,7 @@ docker run -d \
 ```yaml
 services:
   anycubicnext:
-    image: lscr.io/al3x1337/anycubicnext:latest
+    image: ghcr.io/al3x1337/anycubicnext:latest
     container_name: anycubicnext
     environment:
       - PUID=1000
